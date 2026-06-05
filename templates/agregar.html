@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Añadir Destino - Travello</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/main_styles.css' %}">
+    <style>
+        body { background: #f5f5f5; }
+        .form-card {
+            max-width: 600px; margin: 60px auto; background: white;
+            padding: 40px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .form-card h2 { color: #d9a84e; margin-bottom: 30px; text-align: center; }
+        .form-card input, .form-card textarea, .form-card select {
+            width: 100%; padding: 10px; margin: 8px 0 16px;
+            border: 1px solid #ddd; border-radius: 5px; font-size: 14px;
+        }
+        .btn-guardar {
+            background: #d9a84e; color: white; border: none;
+            padding: 12px 30px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px;
+        }
+        .btn-guardar:hover { background: #c49040; }
+        .btn-volver { display: block; text-align: center; margin-top: 15px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="form-card">
+        <h2>añadir destino</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label>Ciudad</label>
+            {{ form.name }}
+            <label>Descripción</label>
+            {{ form.desc }}
+            <label>Imagen</label>
+            {{ form.img }}
+            <label>Precio</label>
+            {{ form.price }}
+            <label>¿Oferta especial?</label>
+            {{ form.ofert }}
+            <br><br>
+            <button type="submit" class="btn-guardar">Guardar Destino</button>
+        </form>
+        <a href="{% url 'index' %}" class="btn-volver">← Volver al inicio</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>hello {{ name }}!!!!!!!!!!!!!!</h1>
+    <form action="suma" method="POST">
+
+        {% csrf_token %}
+
+        <label for="num1">Number 1:</label><br>
+        <input type="text" name = "num1" placeholder="number 1"><br>
+        <label for="num2">Number 2:</label><br>
+        <input type="text" name = "num2" placeholder="number 2"><br>
+        <button type="submit">Calculate</button>
+    </form>
+
+{% endblock %}
